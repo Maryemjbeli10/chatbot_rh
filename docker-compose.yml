@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-rh
+    environment:
+      POSTGRES_DB: chatbot_rh
+      POSTGRES_USER: chatbot
+      POSTGRES_PASSWORD: changeme_en_production
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chatbot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  chatbot:
+    build: .
+    container_name: chatbot-rh
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_URL=http://ollama:11434/api/chat
+      - OLLAMA_MODEL=qwen2.5:3b
+      - OLLAMA_TIMEOUT=300
+      # - DATABASE_URL=postgresql://chatbot:changeme_en_production@postgres:5432/chatbot_rh
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - ollama
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  postgres_data:

@@ -1,0 +1,14 @@
+{
+  "employee1": {
+    "salt": "adaefdca7142201198f56e2ab59e5a16",
+    "hash": "72940e1b62ef8c319904dc1238a535afeecc1b73bd86747b1b11dfce2e595ce5",
+    "role": "employee",
+    "department": "IT"
+  },
+  "rh_admin": {
+    "salt": "7650087371b1f74d468309cf3111db37",
+    "hash": "3583cb2134a6041595d513d6bd12970f844fd96c90685bc16cc61896d921b4d4",
+    "role": "hr_admin",
+    "department": "RH"
+  }
+}

@@ -10,5 +10,19 @@
     "hash": "3583cb2134a6041595d513d6bd12970f844fd96c90685bc16cc61896d921b4d4",
     "role": "hr_admin",
     "department": "RH"
+  },
+  "maryemjbeli@gmail.com": {
+    "salt": "398e4c56f8a95b60e718769e21d83ca1",
+    "hash": "83cdc86015c0f010a1284975c4176e013c3b538737f5dabe559723cdc57df910",
+    "role": "employee",
+    "department": "IT",
+    "full_name": "maryem jbeli"
+  },
+  "sirinebbj123@gmail.com": {
+    "salt": "18bd7a7c0bc69b08f0fdcf74e972c52f",
+    "hash": "29637ea10a43f05e1044c1bb38fbd8259b347e59a89b2b94c82cf14f903277a4",
+    "role": "employee",
+    "department": "IT",
+    "full_name": "sirine bejaoui"
   }
 }
